@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build / deploy output
+dashboard/.output/
+dashboard/.vercel/
+dashboard/.nitro/
+dashboard/.tanstack/
+dashboard/dist/
+dashboard/dist-ssr/
+dashboard/.wrangler/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.local
+
+# Recruitment test brief (MyBestSim's own document — not redistributed)
+docs/recruitment-test.pdf
