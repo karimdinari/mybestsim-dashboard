@@ -1,8 +1,8 @@
 # MyBestSim — Test de recrutement (Stagiaire Développeur IA & Automatisation)
 
-Livrables du test : un **dashboard du catalogue eSIM** (Partie 1) et, à venir, un
-**article SEO** (Partie 2). Ce dépôt contient le code, les données et la
-documentation de méthodologie.
+Livrables du test : un **dashboard du catalogue eSIM** (Partie 1) et un
+**article de blog SEO** (Partie 2). Ce dépôt contient le code, les données, le
+contenu rédactionnel et la documentation de méthodologie.
 
 ## Structure du projet
 
@@ -19,16 +19,14 @@ MyBestSim/
 │   └── providers/             Les 18 CSV sources, un par fournisseur
 ├── scripts/
 │   └── build_catalog.py       Pipeline : 18 CSV -> dashboard/public/catalog.json
+├── article/                   Partie 2 — article de blog SEO
+│   ├── internet-en-croisiere-quelle-esim-choisir.html   Article prêt à l'emploi (web)
+│   └── internet-en-croisiere-quelle-esim-choisir.md     Source Markdown (pour CMS)
 └── docs/
     ├── dashboard-spec.md      Cahier des charges (données + marque + features)
     ├── methodologie.md        Journal de méthodologie (comment l'IA a été utilisée)
-    └── recruitment-test.pdf   Sujet original du test
+    └── recruitment-test.pdf   Sujet original du test (non versionné)
 ```
-
-> Note : le dossier de l'app s'appelle encore `pixel-perfect-23` (nom généré par
-> Lovable). Le renommer en `dashboard` depuis VS Code (clic droit → Renommer)
-> aligne l'arborescence ci-dessus ; le code et les scripts fonctionnent avec les
-> deux noms.
 
 ## Prise en main
 
@@ -85,3 +83,20 @@ d'illimités est affiché séparément. C'est indiqué sur le dashboard.
 TanStack Start · React 19 · Vite · Tailwind CSS v4 · shadcn/ui · Recharts ·
 police Poppins et couleurs de marque MyBestSim. Pas de backend : données
 statiques + calcul côté navigateur → déployable sur n'importe quel hébergeur.
+
+## Partie 2 — Article de blog SEO
+
+Sujet : **« Internet en croisière : quelle eSIM choisir ? »**, rédigé dans le ton
+MyBestSim (vous, pratique, repères visuels), après analyse des pages qui rankent
+et de leur propre blog.
+
+- `article/internet-en-croisiere-quelle-esim-choisir.html` — article **prêt à
+  l'emploi**, mis en page comme une page web (marque MyBestSim, responsive,
+  thème clair/sombre). À ouvrir dans un navigateur.
+- `article/internet-en-croisiere-quelle-esim-choisir.md` — **source Markdown**
+  pour intégration CMS (avec titre SEO, meta description, slug, mots-clés).
+
+Optimisations SEO : ~3 700 mots, réponse directe en intro (featured snippet),
+2 tableaux comparatifs, structure Hn claire, maillage interne vers le comparateur
+et les outils MyBestSim, **données structurées FAQ (JSON-LD)**, et suggestions
+d'images avec textes alternatifs.

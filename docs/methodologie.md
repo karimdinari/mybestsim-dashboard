@@ -216,3 +216,33 @@ version précédente (diff vide), stats conformes (5056, 56, 5,36–154,63, 29,3
 14,49, 653, 3,17, 54 destinations). Le code et les tests fonctionnent quel que
 soit le nom du dossier de l'app.
 
+-------------------------------------------------------------------------------
+ÉTAPE 9 — Partie 2 : article de blog SEO (croisière)
+-------------------------------------------------------------------------------
+Sujet imposé : « Internet en croisière : quelle eSIM choisir ? », ton MyBestSim.
+
+Méthode avec l'IA :
+1. Analyse de la concurrence (recherches web) : pages qui rankent (simology.io
+   « guide complet », roamless, holafly, saily, gigsky) + l'article croisière
+   EXISTANT de MyBestSim. Repérage de la structure gagnante et des angles.
+2. Étude du ton de marque : page Thaïlande + blog MyBestSim (vouvoiement,
+   phrases courtes, repères emoji 📊📶, gras sur les chiffres clés, cartes
+   fournisseurs, FAQ formulée comme le lecteur, CTA « Prêt à… ? », disclosure
+   d'affiliation « classements indépendants »).
+3. Angle éditorial clé (E-E-A-T) : l'honnêteté que beaucoup d'articles évitent —
+   une eSIM NE fonctionne PAS en pleine mer (couverture terrestre ~15-20 km /
+   12 milles marins) ; la bonne réponse est une config HYBRIDE (Wi-Fi du bord en
+   mer + eSIM en escale, en mode avion contre le roaming maritime).
+4. Rédaction : ~3 700 mots, réponse directe en intro (featured snippet),
+   2 tableaux comparatifs, couverture par itinéraire (Méditerranée, Caraïbes,
+   fjords, Asie), besoins en data, profils de voyageurs, checklist, erreurs,
+   FAQ, maillage interne (comparateur, calculateur, téléphones compatibles,
+   codes promo), et données structurées FAQ (JSON-LD).
+
+Livrables (dossier article/) :
+  - internet-en-croisiere-quelle-esim-choisir.html  (prêt à l'emploi, marque MyBestSim)
+  - internet-en-croisiere-quelle-esim-choisir.md    (source Markdown pour CMS)
+
+Décisions assumées : prix du Wi-Fi du bord et promos donnés en fourchettes
+INDICATIVES (« à vérifier ») plutôt qu'en chiffres fermes non vérifiables ;
+aucun code promo inventé (renvoi vers la page codes promo officielle).

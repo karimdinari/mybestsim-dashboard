@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Internet en croisière : quelle eSIM choisir ? (Guide 2026) | MyBestSim</title>
+<meta name="description" content="eSIM, Wi-Fi du bord ou roaming ? Notre guide 2026 pour rester connecté en croisière sans exploser votre budget : ce qui marche en mer, en escale, et la meilleure eSIM selon votre itinéraire." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://mybestsim.com/fr/internet-en-croisiere-quelle-esim-choisir/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Internet en croisière : quelle eSIM choisir ? (Guide 2026)" />
+<meta property="og:description" content="eSIM, Wi-Fi du bord ou roaming ? Le guide honnête pour rester connecté en croisière sans facture surprise." />
+<meta property="og:locale" content="fr_FR" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+<style>
+  /* Identité visuelle MyBestSim : Poppins, bleu #007bff, jaune #ffcc00, rouge CTA #de1414.
+     Mise en page éditoriale : largeur de lecture ~720px, repères emoji, encadrés, tables. */
+  :root{
+    --brand:#007bff; --brand-dark:#005fcc; --accent:#ffcc00; --cta:#de1414;
+    --navy:#003f71; --ink:#1a2433; --slate:#55657a; --muted:#8392a5;
+    --bg:#f6f8fb; --surface:#ffffff; --surface-2:#f0f5fb; --border:#e4eaf1;
+    --tip:#e8f2ff; --tip-bd:#bcdcff; --warn:#fff6e0; --warn-bd:#ffe08a; --ok:#e7f8ee; --ok-bd:#a8e5c2;
+    --radius:16px; --shadow:0 2px 10px rgba(16,42,77,.06),0 10px 30px rgba(16,42,77,.05);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --brand:#3b95ff; --brand-dark:#2a78d6; --accent:#ffd84d; --cta:#ff5a5a;
+    --navy:#cfe4ff; --ink:#e9eef5; --slate:#aeb9c8; --muted:#7d8aa0;
+    --bg:#0e1420; --surface:#161d2b; --surface-2:#1b2433; --border:#263247;
+    --tip:#122337; --tip-bd:#1f3e5e; --warn:#2e2410; --warn-bd:#5a4716; --ok:#122a1d; --ok-bd:#1f4a33;
+    --shadow:0 2px 10px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --brand:#3b95ff; --brand-dark:#2a78d6; --accent:#ffd84d; --cta:#ff5a5a;
+    --navy:#cfe4ff; --ink:#e9eef5; --slate:#aeb9c8; --muted:#7d8aa0;
+    --bg:#0e1420; --surface:#161d2b; --surface-2:#1b2433; --border:#263247;
+    --tip:#122337; --tip-bd:#1f3e5e; --warn:#2e2410; --warn-bd:#5a4716; --ok:#122a1d; --ok-bd:#1f4a33;
+    --shadow:0 2px 10px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Barre de marque */
+  .topbar{background:var(--navy);color:#fff}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .topbar{background:#0a1626}}
+  :root[data-theme="dark"] .topbar{background:#0a1626}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .logo{font-weight:700;font-size:1.15rem;color:#fff;letter-spacing:-.01em}
+  .logo b{color:var(--accent)}
+  .topnav{display:flex;gap:18px;font-size:.9rem}
+  .topnav a{color:#dce8f7}
+  .theme-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;
+    border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:.85rem}
+  @media(max-width:640px){.topnav{display:none}}
+
+  /* Hero */
+  header.hero{background:
+      radial-gradient(1200px 300px at 80% -10%, rgba(0,123,255,.18), transparent 60%),
+      linear-gradient(180deg, var(--surface-2), var(--bg));
+    border-bottom:1px solid var(--border);padding:34px 0 30px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--tip);
+    border:1px solid var(--tip-bd);color:var(--brand-dark);font-weight:600;font-size:.78rem;
+    padding:5px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em}
+  :root[data-theme="dark"] .eyebrow{color:var(--brand)}
+  h1{font-size:2.15rem;line-height:1.18;letter-spacing:-.02em;margin:.5em 0 .35em;text-wrap:balance}
+  .lede{font-size:1.12rem;color:var(--slate);margin:0}
+  .byline{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:18px;
+    font-size:.85rem;color:var(--muted)}
+  .byline .dot{width:4px;height:4px;border-radius:50%;background:var(--muted)}
+
+  /* Figures / suggestions d'images */
+  figure{margin:26px 0}
+  .imgph{border:2px dashed var(--border);background:var(--surface-2);border-radius:var(--radius);
+    padding:30px 20px;text-align:center;color:var(--slate)}
+  .imgph-tag{display:inline-block;background:var(--accent);color:#3a2d00;font-weight:600;
+    font-size:.72rem;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.05em}
+  .imgph p{margin:.6em 0 0;font-size:.9rem}
+  figcaption{font-size:.82rem;color:var(--muted);margin-top:8px;text-align:center}
+
+  main{padding:10px 0 40px}
+  h2{font-size:1.5rem;letter-spacing:-.01em;margin:1.9em 0 .5em;scroll-margin-top:70px;line-height:1.25}
+  h3{font-size:1.14rem;margin:1.4em 0 .4em;color:var(--navy)}
+  :root[data-theme="dark"] h3{color:var(--brand)}
+  p{margin:.7em 0}
+  strong{color:var(--ink);font-weight:600}
+  ul,ol{padding-left:1.25em}
+  li{margin:.35em 0}
+
+  /* Sommaire */
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:18px 22px;margin:26px 0;box-shadow:var(--shadow)}
+  .toc h2{margin:.1em 0 .5em;font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--slate)}
+  .toc ol{columns:2;column-gap:28px;margin:0;font-size:.92rem}
+  @media(max-width:560px){.toc ol{columns:1}}
+
+  /* Encadré En bref */
+  .tldr{background:linear-gradient(180deg,var(--tip),var(--surface));
+    border:1px solid var(--tip-bd);border-left:5px solid var(--brand);
+    border-radius:var(--radius);padding:20px 24px;margin:24px 0;box-shadow:var(--shadow)}
+  .tldr h2{margin:0 0 .3em;font-size:1.15rem;color:var(--brand-dark)}
+  :root[data-theme="dark"] .tldr h2{color:var(--brand)}
+  .tldr p{margin:.45em 0}
+
+  /* Callouts */
+  .note{border-radius:12px;padding:14px 18px;margin:20px 0;border:1px solid}
+  .note p{margin:.2em 0}
+  .note .lbl{font-weight:600}
+  .note.tip{background:var(--tip);border-color:var(--tip-bd)}
+  .note.warn{background:var(--warn);border-color:var(--warn-bd)}
+  .note.ok{background:var(--ok);border-color:var(--ok-bd)}
+
+  /* Tables */
+  .tablecard{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);
+    margin:22px 0;box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px;background:var(--surface)}
+  caption{caption-side:top;text-align:left;font-size:.82rem;color:var(--muted);padding:10px 14px 0}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  thead th{background:var(--surface-2);color:var(--navy);font-weight:600;font-size:.82rem;
+    text-transform:uppercase;letter-spacing:.03em}
+  :root[data-theme="dark"] thead th{color:var(--brand)}
+  tbody tr:last-child td{border-bottom:none}
+  .best{color:#0a8a3e;font-weight:600}
+  :root[data-theme="dark"] .best{color:#4fd98a}
+  .bad{color:var(--cta);font-weight:600}
+
+  /* Cartes fournisseurs */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:22px 0}
+  .pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:18px;box-shadow:var(--shadow);position:relative}
+  .pcard .rank{position:absolute;top:-10px;left:16px;font-size:1.4rem}
+  .pcard h3{margin:.2em 0 .1em;font-size:1.05rem}
+  .pcard .for{font-size:.82rem;color:var(--muted);margin:0 0 .6em}
+  .pcard ul{margin:.4em 0 0;padding-left:1.1em;font-size:.88rem;color:var(--slate)}
+
+  /* Profils */
+  .profile{display:flex;gap:14px;align-items:flex-start;background:var(--surface);
+    border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin:12px 0}
+  .profile .ico{font-size:1.5rem;line-height:1}
+  .profile h3{margin:0 0 .15em;font-size:1.02rem}
+  .profile p{margin:0;font-size:.92rem;color:var(--slate)}
+
+  /* Checklist */
+  .checklist{list-style:none;padding:0;margin:16px 0}
+  .checklist li{position:relative;padding-left:32px;margin:.5em 0}
+  .checklist li::before{content:"✓";position:absolute;left:0;top:0;width:22px;height:22px;
+    background:var(--brand);color:#fff;border-radius:6px;display:grid;place-items:center;
+    font-size:.8rem;font-weight:700}
+
+  /* CTA */
+  .ctabox{background:linear-gradient(135deg,var(--brand),var(--navy));color:#fff;
+    border-radius:var(--radius);padding:28px 26px;margin:30px 0;text-align:center}
+  .ctabox h2{color:#fff;margin:0 0 .3em}
+  .ctabox p{color:#dce8f7;margin:.2em auto .9em;max-width:48ch}
+  .btn{display:inline-block;background:var(--cta);color:#fff;font-weight:600;padding:12px 26px;
+    border-radius:10px;font-size:1rem}
+  .btn:hover{filter:brightness(1.07);text-decoration:none}
+  .btn.ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);margin-left:8px}
+
+  /* FAQ */
+  details{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+    padding:2px 18px;margin:10px 0}
+  details[open]{box-shadow:var(--shadow)}
+  summary{cursor:pointer;font-weight:600;padding:14px 0;list-style:none;position:relative;padding-right:30px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:1.3rem;color:var(--brand)}
+  details[open] summary::after{content:"–"}
+  details p{margin:.2em 0 14px;color:var(--slate)}
+
+  /* Divers */
+  .related{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+  .pill{background:var(--surface);border:1px solid var(--border);border-radius:999px;
+    padding:7px 14px;font-size:.88rem}
+  footer.site{border-top:1px solid var(--border);background:var(--surface);margin-top:30px;
+    padding:24px 0;font-size:.84rem;color:var(--muted)}
+  .disclosure{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;
+    padding:12px 16px;font-size:.82rem;color:var(--muted);margin:22px 0}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="logo">My<b>Best</b>Sim</span>
+    <nav class="topnav">
+      <a href="https://mybestsim.com/fr/">Comparateur eSIM</a>
+      <a href="https://mybestsim.com/fr/codes-promo-cartes-esim/">Codes promo</a>
+      <a href="https://mybestsim.com/fr/meilleurs-fournisseurs-esim/">Meilleures eSIM</a>
+      <a href="https://mybestsim.com/fr/articles/">Blog</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème">🌙 / ☀️</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">🚢 Guide connectivité 2026</span>
+    <h1>Internet en croisière : quelle eSIM choisir ?</h1>
+    <p class="lede">Wi-Fi du bord hors de prix, roaming maritime qui fait exploser la facture, « eSIM mondiale » qui ne capte pas en pleine mer… On vous explique ce qui marche vraiment, et comment rester connecté pour quelques euros en escale.</p>
+    <div class="byline">
+      <span>✍️ Par l'équipe <strong>MyBestSim</strong></span><span class="dot"></span>
+      <span>Mis à jour en 2026</span><span class="dot"></span>
+      <span>⏱️ Lecture ~9 min</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <figure>
+    <div class="imgph">
+      <span class="imgph-tag">📸 Image suggérée — en-tête</span>
+      <p>Photo d'un voyageur sur le pont d'un paquebot, smartphone en main, au coucher du soleil.<br>
+      <em>Alt : « Voyageur utilisant une eSIM sur le pont d'un bateau de croisière »</em></p>
+    </div>
+  </figure>
+
+  <div class="tldr">
+    <h2>⭐ En bref</h2>
+    <p><strong>Aucune eSIM de voyage classique ne fonctionne en pleine mer.</strong> Les antennes mobiles portent jusqu'à ~15-20 km des côtes seulement. Au-delà, votre téléphone bascule sur le satellite du navire — très cher.</p>
+    <p><strong>La meilleure stratégie est hybride :</strong> le <strong>Wi-Fi du bord</strong> pour les jours en mer, et une <strong>eSIM de voyage</strong> (quelques euros) pour les escales, excursions et trajets avant/après la croisière. Le tout en <strong>mode avion</strong> pour éviter tout frais de roaming.</p>
+    <p>👉 Pressé ? Comparez les forfaits par destination sur notre <a href="https://mybestsim.com/fr/">comparateur d'eSIM</a>.</p>
+  </div>
+
+  <nav class="toc" aria-label="Sommaire">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#options">Les 3 façons de se connecter</a></li>
+      <li><a href="#mer">Une eSIM marche-t-elle en mer ?</a></li>
+      <li><a href="#wifi">Le vrai prix du Wi-Fi du bord</a></li>
+      <li><a href="#strategie">La stratégie gagnante (hybride)</a></li>
+      <li><a href="#itineraire">Quelle eSIM selon votre itinéraire</a></li>
+      <li><a href="#data">Combien de données prévoir</a></li>
+      <li><a href="#classique-vs-croisiere">eSIM classique ou « spéciale croisière »</a></li>
+      <li><a href="#profils">Selon votre profil de voyageur</a></li>
+      <li><a href="#preparer">Préparer son téléphone</a></li>
+      <li><a href="#erreurs">Les erreurs à éviter</a></li>
+      <li><a href="#reco">Nos eSIM recommandées</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="options">Les 3 façons de rester connecté en croisière</h2>
+  <p>En croisière, vous avez toujours le choix entre trois solutions — et la bonne réponse combine souvent plusieurs d'entre elles selon que vous êtes <strong>en mer</strong> ou <strong>à quai</strong>.</p>
+  <div class="tablecard">
+    <table>
+      <caption>Comparatif des options de connexion en croisière (2026)</caption>
+      <thead><tr><th>Solution</th><th>Idéale pour…</th><th>Limite principale</th></tr></thead>
+      <tbody>
+        <tr><td><strong>eSIM de voyage</strong></td><td>Escales, excursions, avant/après la croisière</td><td>Ne fonctionne pas en pleine mer</td></tr>
+        <tr><td><strong>Wi-Fi du navire</strong> (satellite / Starlink)</td><td>Jours de navigation en mer</td><td>Cher, débit variable</td></tr>
+        <tr><td><strong>Roaming de votre opérateur</strong></td><td>Dépannage ponctuel près des côtes</td><td class="bad">Roaming maritime = facture surprise</td></tr>
+        <tr><td><strong>eSIM « spéciale croisière »</strong></td><td>Rester connecté même en mer, sans Wi-Fi du bord</td><td>Plus chère ; vérifier la compagnie</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn"><p><span class="lbl">⚠️ Le piège à éviter :</span> le <strong>roaming maritime</strong>. En mer, votre téléphone peut se connecter automatiquement à l'antenne du navire (réseau « Cellular at Sea » / « MCP »), facturée plusieurs euros le Mo. Quelques minutes suffisent pour une facture à trois chiffres.</p></div>
+
+  <h2 id="mer">Une eSIM fonctionne-t-elle vraiment en pleine mer ?</h2>
+  <p><strong>Non — et c'est le point que la plupart des articles oublient de dire clairement.</strong> Une eSIM de voyage se connecte aux réseaux mobiles <em>terrestres</em>. Elle fonctionne donc parfaitement :</p>
+  <ul>
+    <li>✅ <strong>En escale</strong>, dans chaque port et pendant vos excursions à terre ;</li>
+    <li>✅ <strong>À proximité des côtes</strong>, tant que vous captez une antenne (jusqu'à ~15-20 km) ;</li>
+    <li>❌ <strong>Pas en pleine mer</strong>, où il n'y a aucune couverture terrestre.</li>
+  </ul>
+  <p>Dès que le navire s'éloigne des côtes (au-delà d'environ <strong>12 milles marins</strong>), seul le satellite du bateau prend le relais. Votre eSIM, elle, se met simplement en veille — sans frais — jusqu'à la prochaine escale.</p>
+  <div class="note tip"><p><span class="lbl">💡 À retenir :</span> « eSIM mondiale » ne veut pas dire « fonctionne en mer ». Si un fournisseur ne mentionne que des <strong>pays</strong> couverts, considérez-le comme une solution <strong>terre et escale</strong> — ce qui, pour 90 % des croisiéristes, est exactement ce qu'il faut.</p></div>
+
+  <h2 id="wifi">Combien coûte réellement le Wi-Fi du bord ?</h2>
+  <p>Le Wi-Fi des navires passe par satellite (de plus en plus souvent <strong>Starlink</strong>, nettement plus rapide que l'ancien satellite géostationnaire). C'est pratique en mer, mais le tarif se compte <strong>par jour et par appareil</strong>. Voici des fourchettes indicatives pour 2026 (à confirmer auprès de votre compagnie) :</p>
+  <div class="tablecard">
+    <table>
+      <caption>Forfaits Wi-Fi à bord — ordres de grandeur 2026 (par jour, par appareil)</caption>
+      <thead><tr><th>Type de forfait</th><th>Prix/jour indicatif</th><th>Pour 7 jours</th></tr></thead>
+      <tbody>
+        <tr><td>Navigation web & messagerie</td><td>15–25 €</td><td>≈ 105–175 €</td></tr>
+        <tr><td>Streaming & visio (premium)</td><td>30–50 €</td><td class="bad">≈ 210–350 €</td></tr>
+        <tr><td>Exemple Starlink (type Disney/NCL)</td><td>≈ 16–35 $</td><td>Remise si acheté dès J1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>À titre de comparaison, une <strong>eSIM de 5 à 10 Go</strong> pour vos escales coûte souvent <strong>moins cher que deux jours de Wi-Fi du bord</strong>. D'où l'intérêt de combiner les deux intelligemment.</p>
+
+  <figure>
+    <div class="imgph">
+      <span class="imgph-tag">📸 Image suggérée — comparatif</span>
+      <p>Infographie « Wi-Fi du bord vs eSIM » : prix/jour, débit, disponibilité en mer/escale.<br>
+      <em>Alt : « Comparaison des coûts entre le Wi-Fi d'un bateau de croisière et une eSIM »</em></p>
+    </div>
+  </figure>
+
+  <h2 id="strategie">La stratégie gagnante : la configuration hybride</h2>
+  <p>Chez MyBestSim, la recommandation est simple : <strong>ne choisissez pas « eSIM OU Wi-Fi » — combinez-les</strong> selon le moment.</p>
+  <ol>
+    <li><strong>En mer :</strong> le <strong>Wi-Fi du navire</strong> (ou rien du tout, pour profiter de la croisière). Activez le <strong>mode avion</strong> dès l'appareillage.</li>
+    <li><strong>En escale :</strong> coupez le Wi-Fi du bord, gardez le mode avion, puis <strong>activez votre eSIM</strong> et son réseau de données. Internet rapide et bon marché, comme un local.</li>
+    <li><strong>Avant/après la croisière :</strong> la même eSIM couvre vos jours à l'hôtel, les transferts et l'aéroport.</li>
+  </ol>
+  <div class="note ok"><p><span class="lbl">✅ La bonne config :</span> une configuration de connectivité réussie doit sembler <strong>banale</strong> — vous captez en escale, rien ne se passe en mer, et aucune facture surprise ne vous attend au retour.</p></div>
+
+  <h2 id="itineraire">Quelle eSIM choisir selon votre itinéraire ?</h2>
+  <p>Comme votre eSIM sert surtout en escale, le bon critère est la <strong>zone géographique</strong> de votre croisière. Une eSIM <strong>régionale</strong> (plusieurs pays) est presque toujours plus pratique qu'une eSIM pays par pays.</p>
+  <h3>🌊 Méditerranée (Espagne, Italie, Grèce, France…)</h3>
+  <p>Optez pour une <strong>eSIM Europe</strong> : un seul forfait couvre toutes vos escales, souvent avec un excellent rapport data/prix.</p>
+  <h3>🏝️ Caraïbes</h3>
+  <p>Les îles relèvent de pays différents : privilégiez une <strong>eSIM régionale Caraïbes / Amériques</strong> ou vérifiez chaque escale avant l'achat.</p>
+  <h3>❄️ Norvège & fjords nordiques</h3>
+  <p>Une <strong>eSIM Europe</strong> couvre là aussi la Norvège et les escales scandinaves. La couverture côtière y est excellente.</p>
+  <h3>🌴 Asie du Sud-Est</h3>
+  <p>Choisissez une <strong>eSIM régionale Asie</strong> couvrant Thaïlande, Singapour, Malaisie, Vietnam… (voir notre <a href="https://mybestsim.com/fr/meilleure-carte-esim-thailande/">guide eSIM Thaïlande</a>).</p>
+  <div class="note tip"><p><span class="lbl">💡 Astuce :</span> vérifiez quand même <strong>chaque pays d'escale</strong> avant d'acheter. Un itinéraire « Méditerranée » peut inclure une escale en Turquie ou au Maroc, hors forfait Europe.</p></div>
+
+  <h2 id="data">De combien de données avez-vous besoin ?</h2>
+  <p>En croisière, vous consommez surtout <strong>les jours d'escale</strong>. Estimez vos besoins par usage :</p>
+  <div class="tablecard">
+    <table>
+      <caption>Estimation de consommation par jour d'escale</caption>
+      <thead><tr><th>Profil</th><th>Usage type</th><th>Données / jour d'escale</th></tr></thead>
+      <tbody>
+        <tr><td>Essentiel</td><td>Messages, cartes, quelques photos</td><td>~250–500 Mo</td></tr>
+        <tr><td>Classique</td><td>Réseaux sociaux, navigation, GPS</td><td>~1–1,5 Go</td></tr>
+        <tr><td>Intensif</td><td>Stories, vidéos, partage de connexion</td><td>~2–3 Go</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Pour une croisière d'une semaine avec 4-5 escales, un forfait <strong>5 à 10 Go</strong> est en général le bon équilibre. Besoin d'une estimation précise ? Utilisez notre <a href="https://mybestsim.com/fr/calculateur-de-donnee-voyage/">calculateur de données gratuit</a>.</p>
+
+  <h2 id="classique-vs-croisiere">eSIM classique ou eSIM « spéciale croisière » ?</h2>
+  <p>Certains fournisseurs (comme <strong>Saily</strong> ou <strong>GigSky</strong>) proposent des forfaits <strong>conçus pour la mer</strong>, qui s'activent automatiquement quand le navire dépasse ~12 milles marins et couvrent plusieurs dizaines de compagnies de croisière.</p>
+  <ul>
+    <li><strong>eSIM classique (terre/escale)</strong> — moins chère, idéale si le Wi-Fi du bord vous suffit en mer. <em>Le choix de la majorité.</em></li>
+    <li><strong>eSIM spéciale croisière</strong> — plus chère, pertinente si vous voulez rester joignable <strong>même en mer</strong> sans payer le Wi-Fi du bord. Vérifiez impérativement que <strong>votre compagnie, votre navire et votre itinéraire</strong> sont couverts.</li>
+  </ul>
+  <div class="note warn"><p><span class="lbl">⚠️ Attention :</span> les promotions peuvent aider, mais elles ne doivent <strong>jamais</strong> être la raison principale de choisir un forfait croisière. La couverture passe avant le prix.</p></div>
+
+  <h2 id="profils">Quelle solution selon votre profil de voyageur ?</h2>
+  <div class="profile"><div class="ico">🧘</div><div><h3>Le voyageur déconnecté</h3><p>Vous voulez couper. Une simple <strong>eSIM d'escale</strong> pour les cartes et quelques photos suffit ; oubliez le Wi-Fi du bord.</p></div></div>
+  <div class="profile"><div class="ico">📱</div><div><h3>Le connecté occasionnel</h3><p>Réseaux sociaux en escale + messagerie en mer : <strong>eSIM 5-10 Go</strong> + forfait Wi-Fi basique les jours de navigation.</p></div></div>
+  <div class="profile"><div class="ico">💼</div><div><h3>Le nomade / voyageur d'affaires</h3><p>Besoin d'être joignable en permanence : <strong>eSIM spéciale croisière</strong> ou forfait Wi-Fi premium (Starlink), en double SIM pour garder votre numéro.</p></div></div>
+
+  <h2 id="preparer">Préparez votre téléphone avant l'embarquement</h2>
+  <p>Tout se règle <strong>à terre, sur le Wi-Fi de l'hôtel</strong> — jamais en mer, où vous risqueriez le roaming.</p>
+  <ul class="checklist">
+    <li>Vérifiez que votre téléphone est <a href="https://mybestsim.com/fr/telephones-compatibles-esim/">compatible eSIM</a> et désimlocké.</li>
+    <li>Installez l'eSIM via Wi-Fi <strong>avant</strong> de partir et nommez chaque ligne (ex. « Croisière »).</li>
+    <li><strong>Désactivez les données en itinérance</strong> sur votre SIM principale.</li>
+    <li>Activez le <strong>mode avion + Wi-Fi</strong> dès l'appareillage.</li>
+    <li>Enregistrez vos <strong>QR codes</strong> et identifiants d'application hors ligne.</li>
+    <li>Téléchargez cartes, musique et séries <strong>avant</strong> le départ.</li>
+  </ul>
+  <div class="note tip"><p><span class="lbl">💡 Important :</span> ne supprimez pas un profil eSIM déjà installé, sauf indication du fournisseur — certains ne peuvent pas être réinstallés.</p></div>
+
+  <h2 id="erreurs">Les 5 erreurs qui coûtent cher</h2>
+  <ol>
+    <li><strong>Oublier le mode avion en mer</strong> → roaming maritime, la facture n°1 des croisiéristes.</li>
+    <li><strong>Acheter le Wi-Fi du bord à la dernière minute</strong> → les forfaits achetés dès le 1er jour sont souvent moins chers.</li>
+    <li><strong>Ne pas tester son eSIM avant de partir</strong> → activez-la à terre pour vérifier qu'elle fonctionne.</li>
+    <li><strong>Sous-estimer sa consommation</strong> → les photos et stories partent vite ; prévoyez une marge.</li>
+    <li><strong>Confondre couverture et signal utilisable</strong> → « couvert » sur la carte ≠ « capte en plein océan ».</li>
+  </ol>
+
+  <h2 id="reco">Nos eSIM recommandées pour la croisière</h2>
+  <p>Pour les escales, privilégiez un fournisseur fiable avec une bonne couverture régionale. Voici des profils d'offres à comparer sur notre <a href="https://mybestsim.com/fr/meilleurs-fournisseurs-esim/">page des meilleures eSIM</a> :</p>
+  <div class="cards">
+    <div class="pcard"><span class="rank">🥇</span><h3>Pour la Méditerranée & l'Europe</h3><p class="for">Escales Espagne, Italie, Grèce…</p><ul><li>eSIM régionale Europe</li><li>Excellent rapport data/prix</li><li>Couverture 4G/5G étendue</li></ul></div>
+    <div class="pcard"><span class="rank">🥈</span><h3>Pour un itinéraire multi-régions</h3><p class="for">Transatlantique, tour du monde</p><ul><li>eSIM régionale large / mondiale</li><li>Un seul forfait, plusieurs zones</li><li>Vérifier chaque escale</li></ul></div>
+    <div class="pcard"><span class="rank">🥉</span><h3>Pour rester connecté en mer</h3><p class="for">Jours de navigation</p><ul><li>eSIM spéciale croisière (Saily, GigSky)</li><li>Activation auto au large</li><li>Vérifier la compagnie</li></ul></div>
+  </div>
+  <p>👉 Pensez à appliquer un <a href="https://mybestsim.com/fr/codes-promo-cartes-esim/">code promo eSIM</a> avant de finaliser votre achat.</p>
+
+  <div class="ctabox">
+    <h2>Prêt à embarquer connecté ? ⚓</h2>
+    <p>Comparez en 30 secondes les meilleures eSIM pour chaque escale de votre croisière, et partez l'esprit léger.</p>
+    <a class="btn" href="https://mybestsim.com/fr/">Comparer les eSIM →</a>
+    <a class="btn ghost" href="https://mybestsim.com/fr/calculateur-de-donnee-voyage/">Calculer mes besoins</a>
+  </div>
+
+  <h2 id="faq">FAQ — Internet en croisière</h2>
+  <details><summary>Une eSIM fonctionne-t-elle en pleine mer ?</summary><p>Non. Une eSIM de voyage se connecte aux réseaux terrestres et fonctionne en escale et près des côtes (jusqu'à ~15-20 km). En pleine mer, seul le Wi-Fi du navire (satellite) ou une eSIM spéciale croisière prend le relais.</p></details>
+  <details><summary>Est-ce moins cher qu'un forfait Wi-Fi du bateau ?</summary><p>Pour un usage à terre, oui, très largement. Une eSIM de 5-10 Go coûte souvent moins que deux jours de Wi-Fi du bord. Pour les jours en mer, le Wi-Fi du navire reste nécessaire.</p></details>
+  <details><summary>Comment éviter une facture de roaming en croisière ?</summary><p>Désactivez les données en itinérance sur votre SIM principale et laissez le téléphone en <strong>mode avion</strong> en mer. Vous n'activez le Wi-Fi ou l'eSIM que lorsque vous le décidez.</p></details>
+  <details><summary>Faut-il une eSIM par pays ou une eSIM régionale ?</summary><p>Pour une croisière qui enchaîne les escales, une <strong>eSIM régionale</strong> (Europe, Asie, Caraïbes…) est plus simple et souvent plus économique qu'une eSIM par pays.</p></details>
+  <details><summary>Puis-je garder mon numéro habituel ?</summary><p>Oui. L'eSIM s'ajoute à votre carte SIM : vous gardez votre numéro (en data désactivée pour éviter le roaming) et utilisez l'eSIM pour Internet. C'est le double-SIM.</p></details>
+  <details><summary>Puis-je partager la connexion (hotspot) avec ma famille ?</summary><p>Oui, si votre forfait eSIM autorise le partage de connexion. Vérifiez la mention « hotspot / partage » avant l'achat — pratique pour connecter tablette et proches en escale.</p></details>
+
+  <div class="disclosure">
+    ℹ️ <strong>Transparence :</strong> MyBestSim peut percevoir une commission lorsque vous souscrivez via nos liens, sans aucun surcoût pour vous. Cela ne modifie pas nos classements, qui restent entièrement indépendants.
+  </div>
+
+  <h3>Destinations similaires</h3>
+  <div class="related">
+    <a class="pill" href="https://mybestsim.com/fr/meilleure-carte-esim-thailande/">🇹🇭 eSIM Thaïlande</a>
+    <a class="pill" href="https://mybestsim.com/fr/">🌍 eSIM Europe</a>
+    <a class="pill" href="https://mybestsim.com/fr/">🏝️ eSIM Caraïbes</a>
+    <a class="pill" href="https://mybestsim.com/fr/">🌏 eSIM Asie</a>
+  </div>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="logo" style="color:var(--navy)">My<b style="color:var(--brand)">Best</b>Sim</span>
+    &nbsp;· mybestsim.com · Voyagez l'esprit léger. · Prix indicatifs 2026, à vérifier auprès des fournisseurs et compagnies.
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Une eSIM fonctionne-t-elle en pleine mer ?","acceptedAnswer":{"@type":"Answer","text":"Non. Une eSIM de voyage se connecte aux réseaux terrestres et fonctionne en escale et près des côtes (jusqu'à environ 15-20 km). En pleine mer, seul le Wi-Fi du navire ou une eSIM spéciale croisière fonctionne."}},
+    {"@type":"Question","name":"Une eSIM est-elle moins chère que le Wi-Fi du bateau ?","acceptedAnswer":{"@type":"Answer","text":"Pour un usage à terre, oui. Une eSIM de 5 à 10 Go coûte souvent moins que deux jours de Wi-Fi du bord. Pour les jours en mer, le Wi-Fi du navire reste nécessaire."}},
+    {"@type":"Question","name":"Comment éviter une facture de roaming en croisière ?","acceptedAnswer":{"@type":"Answer","text":"Désactivez les données en itinérance et laissez le téléphone en mode avion en mer. N'activez le Wi-Fi ou l'eSIM que lorsque vous le décidez."}},
+    {"@type":"Question","name":"Faut-il une eSIM par pays ou régionale pour une croisière ?","acceptedAnswer":{"@type":"Answer","text":"Pour une croisière multi-escales, une eSIM régionale (Europe, Asie, Caraïbes) est plus simple et souvent plus économique qu'une eSIM par pays."}},
+    {"@type":"Question","name":"Puis-je garder mon numéro habituel ?","acceptedAnswer":{"@type":"Answer","text":"Oui. L'eSIM s'ajoute à votre SIM en double-SIM : vous gardez votre numéro (données désactivées) et utilisez l'eSIM pour Internet."}},
+    {"@type":"Question","name":"Puis-je partager la connexion avec ma famille ?","acceptedAnswer":{"@type":"Answer","text":"Oui, si le forfait autorise le partage de connexion (hotspot). Vérifiez cette mention avant l'achat."}}
+  ]
+}
+</script>
+<script>
+  (function(){
+    var btn=document.getElementById('themeBtn');
+    try{var saved=localStorage.getItem('mbs-theme');if(saved)document.documentElement.setAttribute('data-theme',saved);}catch(e){}
+    btn&&btn.addEventListener('click',function(){
+      var cur=document.documentElement.getAttribute('data-theme');
+      var next=cur==='dark'?'light':(cur==='light'?'dark':(matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark'));
+      document.documentElement.setAttribute('data-theme',next);
+      try{localStorage.setItem('mbs-theme',next);}catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
