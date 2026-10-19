@@ -1,5 +1,5 @@
 ===============================================================================
-RAPPORT DE MÉTHODOLOGIE — Test de recrutement MyBestSim
+RAPPORT DE MÉTHODOLOGIE : Test de recrutement MyBestSim
 Stagiaire Développeur IA & Automatisation
 Outil IA utilisé : Claude Code (agent IA en terminal)
 ===============================================================================
@@ -9,7 +9,7 @@ je me suis servi de l'IA. Il servira de base à la section « comment tu as
 utilisé l'IA » demandée dans le livrable.
 
 -------------------------------------------------------------------------------
-ÉTAPE 0 — Lecture et compréhension du sujet
+ÉTAPE 0 : Lecture et compréhension du sujet
 -------------------------------------------------------------------------------
 - J'ai fait lire le PDF du test par l'IA pour en extraire les attentes exactes.
 - Le test comporte 2 parties :
@@ -20,7 +20,7 @@ utilisé l'IA » demandée dans le livrable.
 - Critères d'évaluation : résultat final, autonomie, méthodologie.
 
 -------------------------------------------------------------------------------
-ÉTAPE 1 — Exploration et audit des données (18 fichiers CSV)
+ÉTAPE 1 : Exploration et audit des données (18 fichiers CSV)
 -------------------------------------------------------------------------------
 Objectif : comprendre la structure avant de coder, repérer les pièges.
 
@@ -53,7 +53,7 @@ DÉCISION ASSUMÉE (demandée par le sujet en cas de doute) :
      information séparée. C'est plus honnête qu'un 0 ou qu'une valeur arbitraire.
 
 -------------------------------------------------------------------------------
-ÉTAPE 2 — Pipeline de normalisation des données (script Python)
+ÉTAPE 2 : Pipeline de normalisation des données (script Python)
 -------------------------------------------------------------------------------
 Objectif : transformer les 18 CSV en UN jeu de données propre + calculer les
 stats demandées, de façon reproductible (le sujet parle d'un import quotidien).
@@ -70,7 +70,7 @@ Ce que j'ai fait faire à l'IA :
 RÉSULTATS CALCULÉS (chiffres clés du dashboard) :
   1. Nombre total de cartes eSIM .............. 5 056
   2. Produits à plus de 100 € ................. 56
-  3. Fourchette de prix ....................... 5,36 € – 154,63 €
+  3. Fourchette de prix ....................... 5,36 € - 154,63 €
   4. Moyenne de data (hors illimité) .......... 14,49 Go  (+ 653 forfaits illimités)
   5. Prix moyen global ........................ 29,30 €
   6. Répartition par fournisseur (18) ......... Airalo 722 … 4S eSIM 92
@@ -88,7 +88,7 @@ Choix technique : embarquer data.json (1,4 Mo) directement dans la page =>
 dashboard 100 % autonome, aucun backend, ouvrable par simple lien.
 
 -------------------------------------------------------------------------------
-ÉTAPE 3 — Étude de l'identité de marque (site officiel mybestsim.com)
+ÉTAPE 3 : Étude de l'identité de marque (site officiel mybestsim.com)
 -------------------------------------------------------------------------------
 Objectif : que le dashboard soit visuellement cohérent avec la marque.
 
@@ -105,7 +105,7 @@ Ce que j'ai fait faire à l'IA :
    à une seule action, cartes blanches arrondies, note contraste sur le jaune).
 
 -------------------------------------------------------------------------------
-ÉTAPE 4 — Features à valeur ajoutée (créativité + autonomie)
+ÉTAPE 4 : Features à valeur ajoutée (créativité + autonomie)
 -------------------------------------------------------------------------------
 Au-delà des stats demandées, 2 features choisies car elles collent au métier et
 au titre du poste (« IA & Automatisation ») :
@@ -117,7 +117,7 @@ au titre du poste (« IA & Automatisation ») :
      « Automatisation » (détecter les données corrompues avant mise en ligne).
 
 -------------------------------------------------------------------------------
-ÉTAPE 5 — Rédaction du cahier des charges professionnel (handoff)
+ÉTAPE 5 : Rédaction du cahier des charges professionnel (handoff)
 -------------------------------------------------------------------------------
 Décision produit : je ne code pas le dashboard dans cette session ; je produis
 une SPEC complète et professionnelle (dashboard-brief.md) qui relie le front
@@ -132,7 +132,7 @@ Livrables générés dans le dossier du projet :
   - rapport.text .......... le présent journal de méthodologie
 
 -------------------------------------------------------------------------------
-ÉTAPE 6 — Intégration des données dans le frontend (Partie 1 fonctionnelle)
+ÉTAPE 6 : Intégration des données dans le frontend (Partie 1 fonctionnelle)
 -------------------------------------------------------------------------------
 Contexte : un frontend a été généré (projet Lovable « pixel-perfect-23 » :
 TanStack Start + React 19 + Vite + Tailwind v4 + shadcn/ui, police Poppins,
@@ -154,7 +154,7 @@ Ce que j'ai fait faire à l'IA :
 - Les statistiques sont recalculées côté client par computeStats() à partir des
   vraies lignes (et non plus des constantes), ce qui prouve que le pipeline tourne.
 
-ÉTAPE 6 (suite) — Vérification de la Partie 1
+ÉTAPE 6 (suite) : Vérification de la Partie 1
 - npm install (331 paquets) OK.
 - Serveur de dev (npm run dev) : page d'accueil HTTP 200, dashboard rendu
   (KPIs, graphiques, explorateur), /catalog.json servi (5056 lignes).
@@ -171,7 +171,7 @@ Reste à faire (optionnel/bonus) : les 2 features « Meilleure eSIM » et « San
 imports » décrites dans dashboard-brief.md ; puis le déploiement en ligne.
 
 -------------------------------------------------------------------------------
-ÉTAPE 7 — Feature « Santé des imports » (volet Automatisation)
+ÉTAPE 7 : Feature « Santé des imports » (volet Automatisation)
 -------------------------------------------------------------------------------
 Objectif : rendre concret le « Automatisation » du poste = contrôler la qualité
 des CSV à chaque import quotidien et bloquer les données corrompues avant mise
@@ -196,7 +196,7 @@ Implémentation :
   Total 7/7 tests OK. Build de production OK. Panneau rendu (HTTP 200).
 
 -------------------------------------------------------------------------------
-ÉTAPE 8 — Mise au propre de l'architecture du projet
+ÉTAPE 8 : Mise au propre de l'architecture du projet
 -------------------------------------------------------------------------------
 Objectif : une arborescence et des noms professionnels, prêts à être rendus.
 
@@ -212,12 +212,12 @@ Réorganisation :
                              bloqué en externe car VS Code tient le dossier .git)
 
 Vérification : scripts/build_catalog.py régénère un catalog.json IDENTIQUE à la
-version précédente (diff vide), stats conformes (5056, 56, 5,36–154,63, 29,30,
+version précédente (diff vide), stats conformes (5056, 56, 5,36-154,63, 29,30,
 14,49, 653, 3,17, 54 destinations). Le code et les tests fonctionnent quel que
 soit le nom du dossier de l'app.
 
 -------------------------------------------------------------------------------
-ÉTAPE 9 — Partie 2 : article de blog SEO (croisière)
+ÉTAPE 9 : Partie 2 : article de blog SEO (croisière)
 -------------------------------------------------------------------------------
 Sujet imposé : « Internet en croisière : quelle eSIM choisir ? », ton MyBestSim.
 
@@ -226,10 +226,10 @@ Méthode avec l'IA :
    « guide complet », roamless, holafly, saily, gigsky) + l'article croisière
    EXISTANT de MyBestSim. Repérage de la structure gagnante et des angles.
 2. Étude du ton de marque : page Thaïlande + blog MyBestSim (vouvoiement,
-   phrases courtes, repères emoji 📊📶, gras sur les chiffres clés, cartes
+   phrases courtes, repères emoji, gras sur les chiffres clés, cartes
    fournisseurs, FAQ formulée comme le lecteur, CTA « Prêt à… ? », disclosure
    d'affiliation « classements indépendants »).
-3. Angle éditorial clé (E-E-A-T) : l'honnêteté que beaucoup d'articles évitent —
+3. Angle éditorial clé (E-E-A-T) : l'honnêteté que beaucoup d'articles évitent :
    une eSIM NE fonctionne PAS en pleine mer (couverture terrestre ~15-20 km /
    12 milles marins) ; la bonne réponse est une config HYBRIDE (Wi-Fi du bord en
    mer + eSIM en escale, en mode avion contre le roaming maritime).
@@ -247,9 +247,9 @@ Décisions assumées : prix du Wi-Fi du bord et promos donnés en fourchettes
 INDICATIVES (« à vérifier ») plutôt qu'en chiffres fermes non vérifiables ;
 aucun code promo inventé (renvoi vers la page codes promo officielle).
 -------------------------------------------------------------------------------
-ÉTAPE 10 — Automatisation CI/CD (GitHub Actions)
+ÉTAPE 10 : Automatisation CI/CD (GitHub Actions)
 -------------------------------------------------------------------------------
-Objectif : pousser le volet « Automatisation » jusqu'au bout — l'import quotidien
+Objectif : pousser le volet « Automatisation » jusqu'au bout : l'import quotidien
 doit se faire TOUT SEUL, sans relancer de script à la main.
 
 Mise en place :

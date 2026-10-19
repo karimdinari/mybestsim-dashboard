@@ -42,11 +42,14 @@ jobs:
         run: |
           if git diff --quiet -- dashboard/public/catalog.json; then
             echo "Catalogue inchangé — aucun redéploiement nécessaire."
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add dashboard/public/catalog.json
-            git commit -m "chore: régénération automatique du catalogue"
-            git push
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dashboard/public/catalog.json
+          git commit -m "chore: régénération automatique du catalogue"
+          if git push 2>/dev/null; then
             echo "Catalogue mis à jour et poussé — Vercel va redéployer."
+          else
+            echo "Catalogue régénéré. Push non effectué (droits d'écriture Actions requis : Settings > Actions > Workflow permissions > Read and write)."
           fi

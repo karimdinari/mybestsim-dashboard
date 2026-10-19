@@ -4,28 +4,37 @@ Livrables du test : un **dashboard du catalogue eSIM** (Partie 1) et un
 **article de blog SEO** (Partie 2). Ce dépôt contient le code, les données, le
 contenu rédactionnel et la documentation de méthodologie.
 
+## 🔗 Liens en ligne
+
+- **Dashboard :** https://mybestsim-dashboard-karimdinari2003-7409s-projects.vercel.app
+- **Article SEO :** https://mybestsim-dashboard-karimdinari2003-7409s-projects.vercel.app/article.html
+
 ## Structure du projet
 
 ```
 MyBestSim/
-├── README.md                  Ce fichier : vue d'ensemble et prise en main
-├── dashboard/                 Application web du dashboard (TanStack Start + React)
-│   ├── src/                   Code source (routes, composants, logique catalogue)
-│   │   ├── routes/index.tsx   Page du dashboard (KPI, graphiques, audit, explorateur)
-│   │   └── lib/catalog.ts     Parsing CSV, calcul des stats, audit qualité
-│   ├── public/catalog.json    Données normalisées servies à l'app (généré)
-│   └── src/test/              Tests automatisés (vérifient les stats + l'audit)
+├── README.md                     Vue d'ensemble et prise en main
+├── methodologie.md               Journal de méthodologie (comment l'IA a été utilisée)
+├── .github/workflows/
+│   └── update-catalog.yml        CI : régénère le catalogue et redéploie
+├── dashboard/                    Application web (TanStack Start + React)
+│   ├── src/
+│   │   ├── routes/index.tsx      Page du dashboard (KPI, graphiques, audit, explorateur)
+│   │   └── lib/catalog.ts        Parsing CSV, calcul des stats, audit qualité
+│   ├── public/
+│   │   ├── catalog.json          Données normalisées servies à l'app (généré)
+│   │   ├── article.html          Article SEO publié en ligne (/article.html)
+│   │   ├── logo.png              Logo MyBestSim
+│   │   └── providers/            Logos des fournisseurs (fallback monogramme)
+│   ├── src/test/                 Tests automatisés (stats + audit)
+│   └── vercel.json               Config de déploiement Vercel
 ├── data/
-│   └── providers/             Les 18 CSV sources, un par fournisseur
+│   └── providers/                Les 18 CSV sources, un par fournisseur
 ├── scripts/
-│   └── build_catalog.py       Pipeline : 18 CSV -> dashboard/public/catalog.json
-├── article/                   Partie 2 — article de blog SEO
-│   ├── internet-en-croisiere-quelle-esim-choisir.html   Article prêt à l'emploi (web)
-│   └── internet-en-croisiere-quelle-esim-choisir.md     Source Markdown (pour CMS)
-└── docs/
-    ├── dashboard-spec.md      Cahier des charges (données + marque + features)
-    ├── methodologie.md        Journal de méthodologie (comment l'IA a été utilisée)
-    └── recruitment-test.pdf   Sujet original du test (non versionné)
+│   └── build_catalog.py          Pipeline : 18 CSV -> dashboard/public/catalog.json
+└── article/                      Partie 2 — article de blog SEO (sources)
+    ├── internet-en-croisiere-quelle-esim-choisir.html   Article prêt à l'emploi
+    └── internet-en-croisiere-quelle-esim-choisir.md     Source Markdown (CMS)
 ```
 
 ## Prise en main
@@ -33,14 +42,14 @@ MyBestSim/
 ### 1. Lancer le dashboard (Partie 1)
 
 ```bash
-cd dashboard          # ou pixel-perfect-23
+cd dashboard
 npm install           # une seule fois
 npm run dev           # ouvre http://localhost:8080
 ```
 
 Le dashboard charge automatiquement le catalogue (5 056 produits, 18
 fournisseurs) — aucun import manuel requis. Le bouton « Importer les CSV » permet
-de recharger d'autres fichiers à la volée.
+de recharger d'autres fichiers à la volée. L'article est servi sur `/article.html`.
 
 ### 2. Régénérer les données depuis les CSV
 
@@ -68,6 +77,8 @@ npm run build         # build de production (déployable)
 - **Bonus** : prix/Go, validité moyenne, % rechargeables, illimités, destinations.
 - **Graphiques** : cartes par fournisseur, distribution des prix, prix moyen par
   fournisseur, réseau 4G/5G, top destinations.
+- **Fournisseurs** : grille avec logos (et monogramme automatique pour tout
+  nouveau fournisseur sans logo).
 - **Santé des imports** (volet Automatisation) : audit auto de la qualité des
   données (champs manquants, prix/validité invalides, devise, doublons de SKU,
   réseau, tarifs au Go aberrants) avec un statut global.
@@ -96,21 +107,20 @@ ligne se met à jour tout seul, sans intervention.
 
 TanStack Start · React 19 · Vite · Tailwind CSS v4 · shadcn/ui · Recharts ·
 police Poppins et couleurs de marque MyBestSim. Pas de backend : données
-statiques + calcul côté navigateur → déployable sur n'importe quel hébergeur.
+statiques + calcul côté navigateur → déployé sur Vercel.
 
 ## Partie 2 — Article de blog SEO
 
 Sujet : **« Internet en croisière : quelle eSIM choisir ? »**, rédigé dans le ton
-MyBestSim (vous, pratique, repères visuels), après analyse des pages qui rankent
-et de leur propre blog.
+MyBestSim (vouvoiement, pratique, repères visuels), après analyse des pages qui
+rankent et de leur propre blog.
 
-- `article/internet-en-croisiere-quelle-esim-choisir.html` — article **prêt à
-  l'emploi**, mis en page comme une page web (marque MyBestSim, responsive,
-  thème clair/sombre). À ouvrir dans un navigateur.
-- `article/internet-en-croisiere-quelle-esim-choisir.md` — **source Markdown**
-  pour intégration CMS (avec titre SEO, meta description, slug, mots-clés).
+- En ligne : **/article.html** (mis en page comme une page web, responsive,
+  thème clair/sombre, marque MyBestSim).
+- Sources dans `article/` : HTML prêt à l'emploi + **Markdown** pour CMS
+  (titre SEO, meta description, slug, mots-clés).
 
-Optimisations SEO : ~3 700 mots, réponse directe en intro (featured snippet),
-2 tableaux comparatifs, structure Hn claire, maillage interne vers le comparateur
-et les outils MyBestSim, **données structurées FAQ (JSON-LD)**, et suggestions
-d'images avec textes alternatifs.
+Optimisations SEO : ~3 860 mots, réponse directe en intro (featured snippet),
+2 tableaux comparatifs, section installation/activation, structure Hn claire,
+maillage interne vers le comparateur et les outils MyBestSim, **données
+structurées FAQ (JSON-LD)** et suggestions d'images avec textes alternatifs.
