@@ -114,6 +114,19 @@ Certains fournisseurs (comme **Saily** ou **GigSky**) proposent des forfaits **c
 - 📱 **Le connecté occasionnel** — **eSIM 5-10 Go** + forfait Wi-Fi basique les jours de navigation.
 - 💼 **Le nomade / voyageur d'affaires** — **eSIM spéciale croisière** ou Wi-Fi premium (Starlink), en double SIM pour garder votre numéro.
 
+## Comment installer et activer votre eSIM
+
+Tout se règle en quelques minutes, **à terre et sur une connexion Wi-Fi**, avant l'embarquement.
+
+> 📱 **Compatibilité :** votre téléphone doit être **compatible eSIM** et désimlocké. Un doute ? [Voir la liste complète des téléphones compatibles](https://mybestsim.com/fr/telephones-compatibles-esim/).
+
+1. **Choisissez et achetez** votre forfait selon l'itinéraire ; vous recevez un **QR code** par e-mail ou dans l'application.
+2. **Scannez le QR code** : *iPhone* → Réglages › Données cellulaires › Ajouter une eSIM ; *Android* → Paramètres › Connexions › Gestionnaire de SIM › Ajouter une eSIM.
+3. **Nommez et configurez** la ligne (ex. « Croisière »), définissez-la comme ligne de **données**, et gardez votre SIM habituelle pour les appels et SMS.
+4. **En escale, connectez-vous** : activez les données de l'eSIM en arrivant au port — ça fonctionne immédiatement.
+
+> ✅ **Conseil :** installez l'eSIM **avant de partir** ; l'activation, elle, se fait en escale.
+
 ## Préparez votre téléphone avant l'embarquement
 
 Tout se règle **à terre, sur le Wi-Fi de l'hôtel** — jamais en mer.
