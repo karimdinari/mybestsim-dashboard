@@ -72,6 +72,34 @@ function Logo() {
   );
 }
 
+// Badge fournisseur : affiche le logo /providers/<slug>.png s'il existe,
+// sinon un monogramme coloré généré à partir du nom. => fonctionne pour
+// n'importe quel nouveau fournisseur sans avoir son logo.
+const BADGE_COLORS = ["#007bff", "#003f71", "#de1414", "#1baf7a", "#6250d6", "#eb6834", "#0ea5e9", "#d55181"];
+function provSlug(name: string) {
+  return name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+function provColor(name: string) {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+  return BADGE_COLORS[h % BADGE_COLORS.length];
+}
+function provInitials(name: string) {
+  const parts = name.replace(/[^A-Za-z0-9 ]/g, " ").split(/\s+/).filter(Boolean);
+  return ((parts[0]?.[0] ?? "") + (parts[1]?.[0] ?? parts[0]?.[1] ?? "")).toUpperCase();
+}
+function ProviderBadge({ name, size = 24 }: { name: string; size?: number }) {
+  const [ok, setOk] = useState(true);
+  const style = { width: size, height: size };
+  return ok ? (
+    <img src={`/providers/${provSlug(name)}.png`} alt="" style={style} className="shrink-0 rounded-md bg-white object-contain ring-1 ring-border" onError={() => setOk(false)} />
+  ) : (
+    <span style={{ ...style, background: provColor(name) }} className="grid shrink-0 place-items-center rounded-md text-[10px] font-bold leading-none text-white">
+      {provInitials(name)}
+    </span>
+  );
+}
+
 function Dashboard() {
   const [dark, setDark] = useState(false);
   const [rows, setRows] = useState<Row[] | null>(null);
@@ -238,6 +266,20 @@ function Dashboard() {
           </Card>
         </div>
 
+        <Card title="Fournisseurs" icon={Users}>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            {s.providers.map((p) => (
+              <div key={p.name} className="flex items-center gap-2.5 rounded-xl border border-border bg-card p-3 transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                <ProviderBadge name={p.name} size={36} />
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium leading-tight">{p.name}</p>
+                  <p className="text-xs text-muted-foreground">{fmtInt(p.count)} cartes{p.avgPrice !== undefined ? ` · ${fmtEur(p.avgPrice)}` : ""}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
         <ImportHealth rows={rows} />
 
         <Explorer rows={rows} onImport={() => input.current?.click()} />
@@ -377,7 +419,7 @@ function Explorer({ rows, onImport }: { rows: Row[] | null; onImport: () => void
               <tbody>
                 {list.slice(0, limit).map((r) => (
                   <tr key={r.sku + r.provider} className="border-b last:border-0 hover:bg-muted/60">
-                    <td className="px-3 py-2 font-medium">{r.provider}</td>
+                    <td className="px-3 py-2 font-medium"><span className="inline-flex items-center gap-2"><ProviderBadge name={r.provider} />{r.provider}</span></td>
                     <td className="px-3 py-2 text-muted-foreground">{r.product_name}</td>
                     <td className="px-3 py-2">{r.country_name}</td>
                     <td className="px-3 py-2">{r.data_gb === null ? <span className="rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground">Illimité</span> : r.data_display}</td>
