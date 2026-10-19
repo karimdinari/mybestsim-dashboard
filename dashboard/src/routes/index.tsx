@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useRef, useState, useEffect, type ReactNode } from "react";
 import { Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { Moon, Sun, Upload, Search, Info, ShieldCheck, CheckCircle2, AlertTriangle, XCircle } from "lucide-react";
+import { Moon, Sun, Upload, Search, Info, ShieldCheck, CheckCircle2, AlertTriangle, XCircle,
+  CreditCard, BadgeEuro, ArrowLeftRight, Database, Wallet, Infinity as InfinityIcon, Gauge,
+  CalendarDays, RefreshCw, Globe, Users, BarChart3, Signal, MapPin, Table2, type LucideIcon } from "lucide-react";
 import { auditRows, computeStats, fmtDec, fmtEur, fmtInt, parseCsv, referenceStats, type Check, type Row } from "@/lib/catalog";
 
 export const Route = createFileRoute("/")({
@@ -24,26 +26,48 @@ const tip = {
 };
 const axis = { stroke: "var(--muted-foreground)", fontSize: 11, tickLine: false, axisLine: false } as const;
 
-function Card({ title, children, className = "" }: { title: string; children: ReactNode; className?: string }) {
+function Card({ title, icon: Icon, action, children, className = "" }: { title: string; icon?: LucideIcon; action?: ReactNode; children: ReactNode; className?: string }) {
   return (
-    <section className={`surface overflow-hidden ${className}`}>
-      <header className="flex items-center gap-3 border-b border-border px-5 py-3.5">
-        <span className="h-4 w-1 rounded-full bg-primary" />
+    <section className={`surface overflow-hidden transition-shadow duration-200 hover:shadow-lg ${className}`}>
+      <header className="flex items-center gap-2.5 border-b border-border px-5 py-3.5">
+        {Icon ? (
+          <span className="grid h-7 w-7 place-items-center rounded-md bg-primary/10 text-primary"><Icon className="h-4 w-4" /></span>
+        ) : (
+          <span className="h-4 w-1 rounded-full bg-primary" />
+        )}
         <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{title}</h2>
+        {action && <div className="ml-auto">{action}</div>}
       </header>
       <div className="p-5">{children}</div>
     </section>
   );
 }
 
-function Kpi({ label, value, sub, tone = "primary" }: { label: string; value: string; sub?: ReactNode; tone?: "primary" | "alert" | "accent" }) {
+function Kpi({ label, value, sub, tone = "primary", icon: Icon }: { label: string; value: string; sub?: ReactNode; tone?: "primary" | "alert" | "accent"; icon?: LucideIcon }) {
   const bar = tone === "alert" ? "bg-destructive" : tone === "accent" ? "bg-secondary" : "bg-primary";
+  const iconWrap = tone === "alert" ? "bg-destructive/10 text-destructive" : tone === "accent" ? "bg-secondary/25 text-secondary-foreground" : "bg-primary/10 text-primary";
   return (
-    <div className="surface relative overflow-hidden p-5">
-      <span className={`absolute inset-y-0 left-0 w-0.5 ${bar}`} />
-      <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">{label}</p>
+    <div className="surface group relative overflow-hidden p-5 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+      <span className={`absolute inset-y-0 left-0 w-1 ${bar}`} />
+      <div className="flex items-start justify-between gap-2">
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">{label}</p>
+        {Icon && <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg transition-transform duration-200 group-hover:scale-110 ${iconWrap}`}><Icon className="h-4 w-4" /></span>}
+      </div>
       <p className="mt-2 text-2xl font-semibold tabular-nums tracking-tight text-foreground sm:text-[1.7rem]">{value}</p>
       {sub && <p className="mt-1 text-xs text-muted-foreground">{sub}</p>}
+    </div>
+  );
+}
+
+function Logo() {
+  const [ok, setOk] = useState(true);
+  return (
+    <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-primary-foreground/10 ring-1 ring-primary-foreground/25">
+      {ok ? (
+        <img src="/logo.svg" alt="MyBestSim" className="h-7 w-7 object-contain" onError={() => setOk(false)} />
+      ) : (
+        <span className="text-sm font-bold">MB</span>
+      )}
     </div>
   );
 }
@@ -78,27 +102,38 @@ function Dashboard() {
   }
 
   const importLabel = source === "files" ? `${fileCount} CSV chargés` : source === "auto" ? "Catalogue chargé" : "Importer les CSV";
+  const liveLabel = source === "files" ? "Données importées" : "Catalogue à jour";
 
   const avgProv = s.providers.filter((p) => p.avgPrice !== undefined).sort((a, b) => a.avgPrice! - b.avgPrice!);
   const today = new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="bg-hero text-primary-foreground">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-5">
+      <header className="relative overflow-hidden bg-hero text-primary-foreground">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "22px 22px" }} />
+        <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-secondary/20 blur-3xl" />
+        <div className="pointer-events-none absolute -left-16 top-10 h-56 w-56 rounded-full bg-primary/30 blur-3xl" />
+        <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-6">
           <div className="flex items-center gap-3.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-foreground/10 text-sm font-bold ring-1 ring-primary-foreground/25">MB</div>
+            <Logo />
             <div>
-              <p className="text-lg font-semibold tracking-tight">MyBestSim <span className="font-normal opacity-60">· Catalogue eSIM</span></p>
-              <p className="text-xs opacity-70">{fmtInt(s.total)} produits · {s.providers.length} fournisseurs · mis à jour le {today}</p>
+              <p className="text-lg font-semibold tracking-tight sm:text-xl">MyBestSim <span className="font-normal opacity-60">· Catalogue eSIM</span></p>
+              <div className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-foreground/10 px-2.5 py-0.5 font-medium ring-1 ring-primary-foreground/15">
+                  <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" /><span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" /></span>
+                  {liveLabel}
+                </span>
+                <span className="opacity-80">{fmtInt(s.total)} produits · {s.providers.length} fournisseurs</span>
+                <span className="opacity-60">· maj {today}</span>
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <input ref={input} type="file" accept=".csv" multiple hidden onChange={(e) => onFiles(e.target.files)} />
-            <button onClick={() => input.current?.click()} className="inline-flex items-center gap-2 rounded-md bg-card px-4 py-2 text-sm font-medium text-accent-foreground shadow-sm transition hover:opacity-90">
+            <button onClick={() => input.current?.click()} className="inline-flex items-center gap-2 rounded-lg bg-card px-4 py-2 text-sm font-medium text-accent-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
               <Upload className="h-4 w-4" /> {importLabel}
             </button>
-            <button aria-label="Changer de thème" onClick={() => setDark(!dark)} className="rounded-md bg-primary-foreground/10 p-2 ring-1 ring-primary-foreground/20 transition hover:bg-primary-foreground/20">
+            <button aria-label="Changer de thème" onClick={() => setDark(!dark)} className="rounded-lg bg-primary-foreground/10 p-2.5 ring-1 ring-primary-foreground/20 transition hover:bg-primary-foreground/20">
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
           </div>
@@ -107,19 +142,19 @@ function Dashboard() {
 
       <main className="mx-auto max-w-7xl space-y-6 px-5 py-8">
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-6">
-          <Kpi label="Cartes eSIM" value={fmtInt(s.total)} sub={`${s.providers.length} fournisseurs`} />
-          <Kpi label="Produits > 100 €" value={fmtInt(s.over100)} sub="Haut de gamme" tone="alert" />
-          <Kpi label="Fourchette de prix" value={`${fmtDec(s.minPrice)}–${fmtDec(s.maxPrice)} €`} sub="Min – max" />
-          <Kpi label="Data moyenne" value={`${fmtDec(s.avgGb)} Go`} sub={`hors ${fmtInt(s.unlimited)} illimités`} />
-          <Kpi label="Prix moyen" value={fmtEur(s.avgPrice)} sub="Tous forfaits" />
-          <Kpi label="Forfaits illimités" value={fmtInt(s.unlimited)} sub="Comptés à part" tone="accent" />
+          <Kpi label="Cartes eSIM" value={fmtInt(s.total)} sub={`${s.providers.length} fournisseurs`} icon={CreditCard} />
+          <Kpi label="Produits > 100 €" value={fmtInt(s.over100)} sub="Haut de gamme" tone="alert" icon={BadgeEuro} />
+          <Kpi label="Fourchette de prix" value={`${fmtDec(s.minPrice)}–${fmtDec(s.maxPrice)} €`} sub="Min – max" icon={ArrowLeftRight} />
+          <Kpi label="Data moyenne" value={`${fmtDec(s.avgGb)} Go`} sub={`hors ${fmtInt(s.unlimited)} illimités`} icon={Database} />
+          <Kpi label="Prix moyen" value={fmtEur(s.avgPrice)} sub="Tous forfaits" icon={Wallet} />
+          <Kpi label="Forfaits illimités" value={fmtInt(s.unlimited)} sub="Comptés à part" tone="accent" icon={InfinityIcon} />
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <Kpi label="Prix par Go" value={`${fmtDec(s.perGo)} €/Go`} sub="hors illimités" />
-          <Kpi label="Validité moyenne" value={`${fmtDec(s.avgValidity, 1)} j`} />
-          <Kpi label="Rechargeables" value={`${fmtDec(s.topupPct, 1)} %`} sub="Top-up possible" />
-          <Kpi label="Destinations" value={fmtInt(s.destinations)} sub="Pays et régions" />
+          <Kpi label="Prix par Go" value={`${fmtDec(s.perGo)} €/Go`} sub="hors illimités" icon={Gauge} />
+          <Kpi label="Validité moyenne" value={`${fmtDec(s.avgValidity, 1)} j`} icon={CalendarDays} />
+          <Kpi label="Rechargeables" value={`${fmtDec(s.topupPct, 1)} %`} sub="Top-up possible" icon={RefreshCw} />
+          <Kpi label="Destinations" value={fmtInt(s.destinations)} sub="Pays et régions" icon={Globe} />
         </div>
 
         <p className="flex items-start gap-2.5 rounded-lg border border-border bg-accent/60 px-4 py-3 text-sm text-accent-foreground">
@@ -128,7 +163,7 @@ function Dashboard() {
         </p>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <Card title="Cartes par fournisseur">
+          <Card title="Cartes par fournisseur" icon={Users}>
             <ResponsiveContainer width="100%" height={520}>
               <BarChart data={s.providers} layout="vertical" margin={{ left: 10, right: 20 }}>
                 <CartesianGrid horizontal={false} stroke="var(--border)" />
@@ -141,7 +176,7 @@ function Dashboard() {
           </Card>
 
           <div className="space-y-6">
-            <Card title="Répartition des prix (€)">
+            <Card title="Répartition des prix (€)" icon={BarChart3}>
               <ResponsiveContainer width="100%" height={240}>
                 <BarChart data={s.hist}>
                   <CartesianGrid vertical={false} stroke="var(--border)" />
@@ -154,19 +189,19 @@ function Dashboard() {
                 </BarChart>
               </ResponsiveContainer>
             </Card>
-            <Card title="Réseau 4G vs 5G">
-              <div className="flex h-4 overflow-hidden rounded-full bg-muted">
-                <div className="bg-primary" style={{ width: `${(s.net4g / (s.net4g + s.net5g)) * 100}%` }} />
+            <Card title="Réseau 4G vs 5G" icon={Signal}>
+              <div className="flex h-4 gap-0.5 overflow-hidden rounded-full bg-muted">
+                <div className="bg-primary transition-all duration-500" style={{ width: `${(s.net4g / (s.net4g + s.net5g)) * 100}%` }} />
                 <div className="flex-1 bg-secondary" />
               </div>
               <div className="mt-3 flex justify-between text-sm">
-                <span><b className="text-primary">4G</b> · {fmtInt(s.net4g)} ({fmtDec((s.net4g / (s.net4g + s.net5g)) * 100, 1)} %)</span>
-                <span><b>5G</b> · {fmtInt(s.net5g)} ({fmtDec((s.net5g / (s.net4g + s.net5g)) * 100, 1)} %)</span>
+                <span className="inline-flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-sm bg-primary" /><b>4G</b> · {fmtInt(s.net4g)} ({fmtDec((s.net4g / (s.net4g + s.net5g)) * 100, 1)} %)</span>
+                <span className="inline-flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-sm bg-secondary" /><b>5G</b> · {fmtInt(s.net5g)} ({fmtDec((s.net5g / (s.net4g + s.net5g)) * 100, 1)} %)</span>
               </div>
             </Card>
           </div>
 
-          <Card title="Prix moyen par fournisseur">
+          <Card title="Prix moyen par fournisseur" icon={Wallet}>
             {avgProv.length > 2 ? (
               <ResponsiveContainer width="100%" height={520}>
                 <BarChart data={avgProv} layout="vertical" margin={{ left: 10, right: 20 }}>
@@ -190,7 +225,7 @@ function Dashboard() {
             )}
           </Card>
 
-          <Card title={`Top ${s.topDest.length} destinations`}>
+          <Card title={`Top ${s.topDest.length} destinations`} icon={MapPin}>
             <ResponsiveContainer width="100%" height={Math.max(300, s.topDest.length * 32)}>
               <BarChart data={s.topDest} layout="vertical" margin={{ left: 10, right: 20 }}>
                 <CartesianGrid horizontal={false} stroke="var(--border)" />
@@ -240,7 +275,7 @@ function ImportHealth({ rows }: { rows: Row[] | null }) {
   const audit = useMemo(() => (rows ? auditRows(rows) : null), [rows]);
 
   return (
-    <Card title="Santé des imports">
+    <Card title="Santé des imports" icon={ShieldCheck}>
       {!audit ? (
         <p className="py-6 text-center text-sm text-muted-foreground">
           Chargez le catalogue pour lancer l'audit automatique de qualité des données.
@@ -307,7 +342,7 @@ function Explorer({ rows, onImport }: { rows: Row[] | null; onImport: () => void
   const chip = (on: boolean) => `rounded-md px-3.5 py-2 text-sm font-medium transition ${on ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:text-foreground"}`;
 
   return (
-    <Card title="Explorateur de données">
+    <Card title="Explorateur de données" icon={Table2}>
       {!rows ? (
         <div className="flex flex-col items-center gap-3 py-10 text-center">
           <p className="max-w-md text-sm text-muted-foreground">Chargez les 18 fichiers CSV des fournisseurs pour parcourir les 5 056 produits. Tout reste dans votre navigateur.</p>

@@ -246,3 +246,21 @@ Livrables (dossier article/) :
 Décisions assumées : prix du Wi-Fi du bord et promos donnés en fourchettes
 INDICATIVES (« à vérifier ») plutôt qu'en chiffres fermes non vérifiables ;
 aucun code promo inventé (renvoi vers la page codes promo officielle).
+-------------------------------------------------------------------------------
+ÉTAPE 10 — Automatisation CI/CD (GitHub Actions)
+-------------------------------------------------------------------------------
+Objectif : pousser le volet « Automatisation » jusqu'au bout — l'import quotidien
+doit se faire TOUT SEUL, sans relancer de script à la main.
+
+Mise en place :
+- .github/workflows/update-catalog.yml :
+  * déclencheurs : push de nouveaux CSV dans data/providers/, cron quotidien
+    (06:00 UTC), ou lancement manuel (workflow_dispatch) ;
+  * étapes : checkout -> Python 3.12 -> `python scripts/build_catalog.py`
+    (régénère dashboard/public/catalog.json) ;
+  * commit UNIQUEMENT si le catalogue a changé (git diff), puis push.
+- Le push du catalog.json régénéré déclenche automatiquement un redéploiement
+  Vercel (intégration GitHub). Boucle complète : nouveaux CSV -> stats recalculées
+  -> dashboard en ligne à jour, sans intervention humaine.
+
+Vérifié : YAML valide, pipeline exécuté localement (5056 lignes OK).

@@ -1,0 +1,52 @@
+name: Mise à jour du catalogue
+
+# Automatisation de l'import quotidien :
+# - quand de nouveaux CSV fournisseurs sont poussés dans data/providers/
+# - chaque jour (au cas où les sources changeraient hors Git)
+# - manuellement depuis l'onglet Actions
+# Le script régénère dashboard/public/catalog.json ; si le catalogue a changé,
+# le commit déclenche automatiquement un redéploiement Vercel.
+
+on:
+  push:
+    paths:
+      - "data/providers/**"
+      - "scripts/build_catalog.py"
+  schedule:
+    - cron: "0 6 * * *" # tous les jours à 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-catalog
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installation de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Régénération du catalogue depuis les 18 CSV
+        run: python scripts/build_catalog.py
+
+      - name: Commit & push si le catalogue a changé
+        run: |
+          if git diff --quiet -- dashboard/public/catalog.json; then
+            echo "Catalogue inchangé — aucun redéploiement nécessaire."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add dashboard/public/catalog.json
+            git commit -m "chore: régénération automatique du catalogue"
+            git push
+            echo "Catalogue mis à jour et poussé — Vercel va redéployer."
+          fi

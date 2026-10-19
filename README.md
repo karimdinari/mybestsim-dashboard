@@ -78,6 +78,20 @@ Les 653 forfaits **illimités** (`data_gb` vide) ne peuvent pas être moyennés 
 data moyenne et le prix/Go sont calculés **hors illimité**, et le nombre
 d'illimités est affiché séparément. C'est indiqué sur le dashboard.
 
+## Automatisation (CI/CD)
+
+L'import quotidien est automatisé par GitHub Actions
+([.github/workflows/update-catalog.yml](.github/workflows/update-catalog.yml)) :
+
+- **Déclencheurs** : à chaque push de nouveaux CSV dans `data/providers/`,
+  chaque jour (cron), ou manuellement.
+- **Action** : régénère `dashboard/public/catalog.json` via `build_catalog.py`,
+  puis commit **seulement si le catalogue a changé**.
+- **Déploiement** : ce commit déclenche automatiquement un redéploiement Vercel.
+
+Résultat : déposer les nouveaux fichiers fournisseurs suffit — le dashboard en
+ligne se met à jour tout seul, sans intervention.
+
 ## Stack
 
 TanStack Start · React 19 · Vite · Tailwind CSS v4 · shadcn/ui · Recharts ·
