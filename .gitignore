@@ -21,6 +21,7 @@ __pycache__/
 # OS / editor
 .DS_Store
 Thumbs.db
+desktop.ini
 *.local
 
 # Recruitment test brief (MyBestSim's own document — not redistributed)

@@ -62,11 +62,11 @@ function Kpi({ label, value, sub, tone = "primary", icon: Icon }: { label: strin
 function Logo() {
   const [ok, setOk] = useState(true);
   return (
-    <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-primary-foreground/10 ring-1 ring-primary-foreground/25">
+    <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white/95 ring-1 ring-primary-foreground/25 shadow-sm">
       {ok ? (
-        <img src="/logo.svg" alt="MyBestSim" className="h-7 w-7 object-contain" onError={() => setOk(false)} />
+        <img src="/logo.png" alt="MyBestSim" className="h-full w-full object-contain p-1" onError={() => setOk(false)} />
       ) : (
-        <span className="text-sm font-bold">MB</span>
+        <span className="text-sm font-bold text-primary">MB</span>
       )}
     </div>
   );
